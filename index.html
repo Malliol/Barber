@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Barber — запись онлайн</title>
+<meta name="description" content="Барбершоп: онлайн-запись, цены, контакты и напоминания о визите">
+<meta name="theme-color" content="#14110f">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="page">
+  <header class="hero">
+    <div class="avatar" aria-hidden="true">✂</div>
+    <h1 id="brand">BARBER</h1>
+    <p id="tagline"></p>
+    <p class="addr">📍 <span id="addr"></span></p>
+  </header>
+
+  <nav class="links" aria-label="Ссылки">
+    <a class="btn primary" href="#" data-open="p-book">✂ Записаться онлайн</a>
+    <a class="btn" href="#" data-open="p-my">🔔 Мои записи <span id="myCount" class="badge"></span></a>
+    <a class="btn" id="lnkWa" href="#" target="_blank" rel="noopener">💬 Записаться в WhatsApp</a>
+    <a class="btn" id="lnkTg" href="#" target="_blank" rel="noopener">✈ Написать в Telegram</a>
+    <a class="btn" id="lnkCall" href="#">📞 Позвонить</a>
+    <a class="btn" href="#" data-open="p-price">💈 Прайс</a>
+    <a class="btn" id="lnkMap" href="#" target="_blank" rel="noopener">🗺 Как добраться</a>
+    <a class="btn" id="lnkIg" href="#" target="_blank" rel="noopener">📷 Instagram</a>
+  </nav>
+
+  <footer class="foot">Тестовая версия · данные записей хранятся только в вашем браузере</footer>
+</main>
+
+<div id="sheet" class="sheet" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="sheet-card">
+    <button class="x" data-close aria-label="Закрыть">✕</button>
+    <div class="sheet-body">
+
+      <section class="panel" id="p-book" hidden>
+        <h2>Онлайн-запись</h2>
+        <form id="booking" novalidate>
+          <h3>Услуга</h3>
+          <div id="services" class="grid"></div>
+          <h3>Мастер</h3>
+          <div id="masters" class="chips"></div>
+          <h3>Дата</h3>
+          <div id="days" class="days"></div>
+          <h3>Время</h3>
+          <div id="times" class="times"></div>
+
+          <h3>Ваши данные</h3>
+          <input id="name" class="input" placeholder="Имя" autocomplete="name" required>
+          <input id="phone" class="input" type="tel" placeholder="Телефон" autocomplete="tel" required>
+
+          <h3>Напомнить о записи</h3>
+          <div id="remindChoices" class="checks"></div>
+          <label class="check"><input id="notifyToggle" type="checkbox" checked><span>Показывать уведомления в браузере</span></label>
+
+          <p id="summary" class="summary"></p>
+          <button class="btn primary" type="submit">Записаться</button>
+        </form>
+      </section>
+
+      <section class="panel" id="p-done" hidden>
+        <h2>✅ Вы записаны</h2>
+        <p id="doneInfo" class="summary"></p>
+
+        <h3>Когда напомнить</h3>
+        <div id="doneRemind" class="checks"></div>
+        <label class="check"><input id="doneNotify" type="checkbox"><span>Уведомления в браузере</span></label>
+        <p class="hint">Уведомления в браузере работают, пока сайт открыт. Для надёжности добавьте запись в календарь или напоминания телефона — они сработают сами.</p>
+
+        <h3>Добавить в напоминания</h3>
+        <div class="stack">
+          <button class="btn" id="dlTodo" type="button">🔔 В «Напоминания» (Apple / Outlook)</button>
+          <button class="btn" id="dlCal" type="button">📅 В календарь (.ics: iPhone, Android, Outlook)</button>
+          <a class="btn" id="gcal" href="#" target="_blank" rel="noopener">📆 В Google Календарь</a>
+        </div>
+        <button class="btn ghost" data-close type="button">Готово</button>
+      </section>
+
+      <section class="panel" id="p-my" hidden>
+        <h2>Мои записи</h2>
+        <ul id="myList" class="list"></ul>
+        <button class="btn primary" data-open="p-book" type="button">Новая запись</button>
+      </section>
+
+      <section class="panel" id="p-price" hidden>
+        <h2>Прайс</h2>
+        <ul id="prices" class="prices"></ul>
+        <button class="btn primary" data-open="p-book" type="button">Записаться</button>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script src="app.js"></script>
+</body>
+</html>
