@@ -10,6 +10,7 @@
 </head>
 <body>
 <main class="page">
+<div class="side">
 
   <header class="hero">
     <div class="photo"><img src="photo.jpg" width="300" height="300" alt="Иван Терехов, барбер"></div>
@@ -32,6 +33,9 @@
   <a class="cta" href="#" data-open="p-book">Записаться онлайн <span aria-hidden="true">→</span></a>
   <a class="cta alt" href="#" data-open="p-my">Мои записи и напоминания <span id="myCount" class="badge"></span></a>
 
+</div>
+
+<div class="main">
   <section class="block" aria-labelledby="h-price">
     <h2 id="h-price">Услуги и цены</h2>
     <ul id="prices" class="prices"></ul>
@@ -40,8 +44,10 @@
   <section class="block" aria-labelledby="h-addr">
     <h2 id="h-addr">Адрес</h2>
     <p class="addr" id="addr"></p>
-    <a class="cta alt" id="lnkMap" href="#" target="_blank" rel="noopener">Смотреть на карте <span aria-hidden="true">↗</span></a>
+    <iframe class="map" title="Карта: ул. Маршала Жукова, 23" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://yandex.ru/map-widget/v1/?ll=55.109819%2C51.770913&z=16&pt=55.109819%2C51.770913%2Cpm2rdm"></iframe>
+    <a class="cta alt" id="lnkMap" href="#" target="_blank" rel="noopener">Открыть в Яндекс Картах <span aria-hidden="true">↗</span></a>
   </section>
+</div>
 
   <footer class="foot">Тестовая версия · записи хранятся только в вашем браузере</footer>
 </main>

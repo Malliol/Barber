@@ -88,3 +88,26 @@ h3{margin-top:22px}
 .toast.show{transform:none;opacity:1;visibility:visible}
 @media (max-width:360px){.contacts{grid-template-columns:repeat(2,1fr)}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+.map{display:block;width:100%;height:240px;margin:12px 0 0;border:1px solid var(--line);background:var(--card)}
+
+/* компьютер: две колонки */
+@media (min-width:900px){
+  .page{max-width:1080px;display:grid;grid-template-columns:400px 1fr;gap:72px;align-items:start;padding:64px 32px}
+  .side{position:sticky;top:48px;text-align:center}
+  .photo{width:340px}
+  h1{font-size:36px}
+  .main{padding-top:8px}
+  .block{margin-top:0}
+  .block + .block{margin-top:44px}
+  .block h2{font-size:13px}
+  .prices li{padding:18px 0}
+  .prices .row1{font-size:18px}
+  .prices small{font-size:14px;max-width:560px}
+  .addr{font-size:20px}
+  .map{height:300px}
+  .foot{grid-column:1 / -1;margin-top:8px}
+  .sheet{align-items:center}
+  .sheet-card{max-height:88dvh;border:1px solid var(--line);border-top:4px solid var(--acc)}
+  .sheet-body{max-height:88dvh}
+}
