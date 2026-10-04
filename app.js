@@ -15,10 +15,10 @@ const CONFIG = {
   closedWeekdays: [], // 0 = воскресенье, 1 = понедельник ...
   daysAhead: 14,
   services: [
-    { id: "cut", title: "Мужская стрижка", price: 1500, min: 60 },
+    { id: "cut", title: "Мужская стрижка", price: 1500, min: 60, desc: "Консультация мастера, мытьё головы до и после стрижки, стрижка, сушка и укладка профессиональными средствами. Ножницами, машинкой или комбинированно — в зависимости от стрижки." },
     { id: "combo", title: "Стрижка + борода", price: 2200, min: 90 },
     { id: "beard", title: "Стрижка бороды/усов", price: 800, min: 30 },
-    { id: "machine", title: "Стрижка машинкой", price: 1100, min: 45 },
+    { id: "machine", title: "Стрижка машинкой", price: 1100, min: 45, desc: "Быстро и профессионально, под одну или две насадки. Fade в эту стрижку не входит." },
     { id: "kid", title: "Детская стрижка", price: 1000, min: 45 },
     { id: "style", title: "Укладка", price: 350, min: 15 },
   ],
@@ -399,7 +399,7 @@ function initLinks() {
   $("#lnkVk").href = CONFIG.vk;
   $("#lnkMap").href = CONFIG.mapUrl;
   $("#addr").textContent = CONFIG.address;
-  $("#prices").innerHTML = CONFIG.services.map((s) => `<li><span>${s.title}</span><b>${money(s.price)}</b></li>`).join("");
+  $("#prices").innerHTML = CONFIG.services.map((s) => `<li><div class="row1"><span>${s.title}</span><b>${money(s.price)}</b></div>${s.desc ? `<small>${s.desc}</small>` : ""}</li>`).join("");
 }
 
 document.addEventListener("click", (e) => {

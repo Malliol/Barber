@@ -5,30 +5,45 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Иван Терехов — барбер в Оренбурге</title>
 <meta name="description" content="Барбер Иван Терехов, Оренбург: онлайн-запись, цены, контакты и напоминания о визите">
-<meta name="theme-color" content="#14110f">
+<meta name="theme-color" content="#0c1017">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <main class="page">
+
   <header class="hero">
-    <div class="avatar" aria-hidden="true">✂</div>
-    <h1 id="brand">BARBER</h1>
-    <p id="tagline"></p>
-    <p class="addr">📍 <span id="addr"></span></p>
+    <div class="photo"><img src="photo.jpg" width="300" height="300" alt="Иван Терехов, барбер"></div>
+    <h1 id="brand">ИВАН ТЕРЕХОВ</h1>
+    <p id="tagline" class="tag"></p>
+    <p class="rate"><b>★ 5,0</b> · 99 оценок на Яндекс Картах · «Хорошее место 2026»</p>
   </header>
 
-  <nav class="links" aria-label="Ссылки">
-    <a class="btn primary" href="#" data-open="p-book">✂ Записаться онлайн</a>
-    <a class="btn" href="#" data-open="p-my">🔔 Мои записи <span id="myCount" class="badge"></span></a>
-    <a class="btn" id="lnkWa" href="#" target="_blank" rel="noopener">💬 Записаться в WhatsApp</a>
-    <a class="btn" id="lnkTg" href="#" target="_blank" rel="noopener">✈ Написать в Telegram</a>
-    <a class="btn" id="lnkCall" href="#">📞 Позвонить</a>
-    <a class="btn" href="#" data-open="p-price">💈 Прайс</a>
-    <a class="btn" id="lnkMap" href="#" target="_blank" rel="noopener">🗺 Как добраться</a>
-    <a class="btn" id="lnkVk" href="#" target="_blank" rel="noopener">💙 ВКонтакте</a>
+  <nav class="contacts" aria-label="Контакты">
+    <a class="tile" id="lnkTg" href="#" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 4 3 11l6 2 2 6 3-4 5 4z"/><path d="m9 13 12-9"/></svg>Telegram</a>
+    <a class="tile" id="lnkWa" href="#" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.3-4.2A8 8 0 1 1 8.2 19z"/></svg>WhatsApp</a>
+    <a class="tile" id="lnkCall" href="#">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"/></svg>Позвонить</a>
+    <a class="tile" id="lnkVk" href="#" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7c1 6 4 10 9 10v-4c2 0 3 2 5 4h4c-1-3-3-4-4-5 1-1 3-3 4-5h-4c-1 2-2 3-3 3V7H9v5c-2-1-3-3-4-5z"/></svg>ВКонтакте</a>
   </nav>
 
-  <footer class="foot">Тестовая версия · данные записей хранятся только в вашем браузере</footer>
+  <a class="cta" href="#" data-open="p-book">Записаться онлайн <span aria-hidden="true">→</span></a>
+  <a class="cta alt" href="#" data-open="p-my">Мои записи и напоминания <span id="myCount" class="badge"></span></a>
+
+  <section class="block" aria-labelledby="h-price">
+    <h2 id="h-price">Услуги и цены</h2>
+    <ul id="prices" class="prices"></ul>
+  </section>
+
+  <section class="block" aria-labelledby="h-addr">
+    <h2 id="h-addr">Адрес</h2>
+    <p class="addr" id="addr"></p>
+    <a class="cta alt" id="lnkMap" href="#" target="_blank" rel="noopener">Смотреть на карте <span aria-hidden="true">↗</span></a>
+  </section>
+
+  <footer class="foot">Тестовая версия · записи хранятся только в вашем браузере</footer>
 </main>
 
 <div id="sheet" class="sheet" aria-hidden="true" role="dialog" aria-modal="true">
@@ -37,7 +52,7 @@
     <div class="sheet-body">
 
       <section class="panel" id="p-book" hidden>
-        <h2>Онлайн-запись</h2>
+        <h2 class="title">Онлайн-запись</h2>
         <form id="booking" novalidate>
           <h3>Услуга</h3>
           <div id="services" class="grid"></div>
@@ -57,12 +72,12 @@
           <label class="check"><input id="notifyToggle" type="checkbox" checked><span>Показывать уведомления в браузере</span></label>
 
           <p id="summary" class="summary"></p>
-          <button class="btn primary" type="submit">Записаться</button>
+          <button class="cta" type="submit">Записаться</button>
         </form>
       </section>
 
       <section class="panel" id="p-done" hidden>
-        <h2>✅ Вы записаны</h2>
+        <h2 class="title">Вы записаны</h2>
         <p id="doneInfo" class="summary"></p>
 
         <h3>Когда напомнить</h3>
@@ -72,23 +87,17 @@
 
         <h3>Добавить в напоминания</h3>
         <div class="stack">
-          <button class="btn" id="dlTodo" type="button">🔔 В «Напоминания» (Apple / Outlook)</button>
-          <button class="btn" id="dlCal" type="button">📅 В календарь (.ics: iPhone, Android, Outlook)</button>
-          <a class="btn" id="gcal" href="#" target="_blank" rel="noopener">📆 В Google Календарь</a>
+          <button class="cta alt" id="dlTodo" type="button">В «Напоминания» (Apple / Outlook)</button>
+          <button class="cta alt" id="dlCal" type="button">В календарь (.ics: iPhone, Android, Outlook)</button>
+          <a class="cta alt" id="gcal" href="#" target="_blank" rel="noopener">В Google Календарь</a>
         </div>
-        <button class="btn ghost" data-close type="button">Готово</button>
+        <button class="cta" data-close type="button">Готово</button>
       </section>
 
       <section class="panel" id="p-my" hidden>
-        <h2>Мои записи</h2>
+        <h2 class="title">Мои записи</h2>
         <ul id="myList" class="list"></ul>
-        <button class="btn primary" data-open="p-book" type="button">Новая запись</button>
-      </section>
-
-      <section class="panel" id="p-price" hidden>
-        <h2>Прайс</h2>
-        <ul id="prices" class="prices"></ul>
-        <button class="btn primary" data-open="p-book" type="button">Записаться</button>
+        <button class="cta" data-open="p-book" type="button">Новая запись</button>
       </section>
 
     </div>
