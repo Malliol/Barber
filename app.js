@@ -2,25 +2,27 @@
 
 /* ====== НАСТРОЙКИ (меняйте под себя) ====== */
 const CONFIG = {
-  name: "BARBER·SHOP",
-  tagline: "Мужские стрижки, борода, уход",
-  phone: "+79990000000",
-  whatsapp: "79990000000",
-  telegram: "barber_test",
-  instagram: "barber_test",
-  address: "г. Москва, ул. Примерная, 1",
-  mapUrl: "https://yandex.ru/maps/?text=Москва, ул. Примерная, 1",
+  name: "ИВАН ТЕРЕХОВ",
+  tagline: "Барбер · Оренбург",
+  phone: "+79697502727",
+  whatsapp: "79878591848",
+  telegram: "flalmell",
+  vk: "https://vk.me/19pharaoh96",
+  address: "г. Оренбург, ул. Маршала Жукова, 23",
+  mapUrl: "https://yandex.ru/maps/-/CXeqn0mo",
   workStart: 10,
   workEnd: 20,
-  closedWeekdays: [0], // 0 = воскресенье
+  closedWeekdays: [], // 0 = воскресенье, 1 = понедельник ...
   daysAhead: 14,
   services: [
     { id: "cut", title: "Мужская стрижка", price: 1500, min: 60 },
-    { id: "beard", title: "Борода и усы", price: 1000, min: 30 },
-    { id: "combo", title: "Стрижка + борода", price: 2300, min: 90 },
+    { id: "combo", title: "Стрижка + борода", price: 2200, min: 90 },
+    { id: "beard", title: "Стрижка бороды/усов", price: 800, min: 30 },
+    { id: "machine", title: "Стрижка машинкой", price: 1100, min: 45 },
     { id: "kid", title: "Детская стрижка", price: 1000, min: 45 },
+    { id: "style", title: "Укладка", price: 350, min: 15 },
   ],
-  masters: ["Любой мастер", "Артём", "Игорь", "Макс"],
+  masters: ["Иван"],
 };
 
 const REMINDER_OPTIONS = [
@@ -392,9 +394,9 @@ function initLinks() {
   $("#brand").textContent = CONFIG.name;
   $("#tagline").textContent = CONFIG.tagline;
   $("#lnkCall").href = "tel:" + CONFIG.phone;
-  $("#lnkWa").href = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent("Здравствуйте! Хочу записаться на стрижку")}`;
+  $("#lnkWa").href = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent("Здравствуйте! Добрый день! Можно записаться?")}`;
   $("#lnkTg").href = "https://t.me/" + CONFIG.telegram;
-  $("#lnkIg").href = "https://instagram.com/" + CONFIG.instagram;
+  $("#lnkVk").href = CONFIG.vk;
   $("#lnkMap").href = CONFIG.mapUrl;
   $("#addr").textContent = CONFIG.address;
   $("#prices").innerHTML = CONFIG.services.map((s) => `<li><span>${s.title}</span><b>${money(s.price)}</b></li>`).join("");
